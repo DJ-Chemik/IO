@@ -18,7 +18,7 @@ public class BootstrapBuilderController {
 
     @RequestMapping(value = "/bootstrap", method = RequestMethod.POST)
     public ResponseEntity<Object> setBootstrap(@RequestBody BootstrapBuilder bootstrap) {
-        // TODO: implement method & create BootstrapBuilder ^^^^^^^^^^^^^^^^
+        // TODO: implement method
         return null;
     }
 
