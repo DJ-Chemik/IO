@@ -6,13 +6,20 @@ public class BootstrapBuilder {
     private boolean header;
     private boolean footer;
     private String title, type, description, image;
-    private boolean headerVersion;
-    private int seoVersion;
+    private String headerVersion;
+    private String seoVersion;
 
-    // constructor declaration, TODO: implementation
+    // constructor declaration
     public BootstrapBuilder(boolean header, boolean footer, String title, String type,
-                            String description, String image, boolean headerVersion, int seoVersion) {
-
+                            String description, String image, String headerVersion, String seoVersion) {
+        this.header = header;
+        this.footer = footer;
+        this.title = title;
+        this.type = type;
+        this.description = description;
+        this.image = image;
+        this.headerVersion = headerVersion;
+        this.seoVersion = seoVersion;
     }
 
 }
