@@ -51,7 +51,7 @@ public class BootstrapBuilder {
 
         String mFooter = "";
         if (footer)
-            mFooter = "\t\t<footer class=\"footer\">\n\t\t\t\n\t\t</nav>\n\n";
+            mFooter = "\t\t<footer class=\"footer\">\n\t\t\t\n\t\t</footer>\n\n";
 
         String body = String.format("\t<body>\n%s\t</body>\n", mHeader + mMain + mFooter);
 
