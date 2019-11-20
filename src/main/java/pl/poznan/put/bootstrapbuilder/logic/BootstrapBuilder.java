@@ -47,7 +47,7 @@ public class BootstrapBuilder {
             else; // TODO: handle incompatible header type
         }
 
-        String mMain = "\t\t<main class=\"container\">\n\t\t\t\n\t\t</nav>\n\n";
+        String mMain = "\t\t<main class=\"container\">\n\t\t\t\n\t\t</main>\n\n";
 
         String mFooter = "";
         if (footer)
