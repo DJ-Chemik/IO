@@ -8,17 +8,13 @@ import pl.poznan.put.bootstrapbuilder.logic.BootstrapBuilder;
 public class BootstrapBuilderController {
 
     @RequestMapping(value = "/bootstrap", method = RequestMethod.GET, produces = "application/json")
-    public String getViaParams(@RequestParam boolean header, @RequestParam boolean footer, @RequestParam String title,
-                               @RequestParam String type, @RequestParam String description, @RequestParam String image,
-                               @RequestParam boolean headerVersion, @RequestParam int seoVersion) {
-        // TODO: implement method
-        return null;
-    }
-
-    @RequestMapping(value = "/bootstrap", method = RequestMethod.POST, produces = "application/json")
-    public String getViaBody(@RequestBody BootstrapBuilder bootstrap) {
-        // TODO: implement method
-        return null;
+    public static String getViaParams(@RequestParam(value = "header") boolean header, @RequestParam(value = "footer") boolean footer,
+                                      @RequestParam(value = "title") String title,@RequestParam(value = "type") String type,
+                                      @RequestParam(value = "desc") String description, @RequestParam(value = "image") String image,
+                                      @RequestParam(value = "headerversion") String headerVersion, @RequestParam(value = "seoversion") String seoVersion) {
+        BootstrapBuilder bootstrap = new BootstrapBuilder.Builder().header(header).footer(footer).title(title).type(type).description(description)
+                .image(image).headerVersion(headerVersion).seoVersion(seoVersion).build();
+        return bootstrap.getBootstrap();
     }
 
 }
