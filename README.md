@@ -1,4 +1,4 @@
-# IO BootstrapBuilder
+# IO BootstrapBuilder (develop)
 Inżynieria Oprogramowania (projekt)
 
 ## Feature 1 ready
