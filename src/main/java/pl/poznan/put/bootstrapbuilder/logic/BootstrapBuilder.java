@@ -22,6 +22,17 @@ public class BootstrapBuilder {
         this.seoVersion = seoVersion;
     }
 
+    public BootstrapBuilder(Builder b) {
+        this.header = b.header;
+        this.footer = b.footer;
+        this.title = b.title;
+        this.type = b.type;
+        this.description = b.description;
+        this.image = b.image;
+        this.headerVersion = b.headerVersion;
+        this.seoVersion = b.seoVersion;
+    }
+
     // basic bootstrap getter
     public String getBootstrap() {
         // formatting seoVersion
@@ -57,6 +68,63 @@ public class BootstrapBuilder {
 
         // HTML return
         return String.format("<html>\n%s</html>", head + body);
+    }
+
+    public static class Builder{
+
+        private boolean header;
+        private boolean footer;
+        private String title, type, description, image;
+        private String headerVersion;
+        private String seoVersion;
+
+        public Builder() {
+        }
+
+        public Builder header(boolean h){
+            this.header = h;
+            return this;
+        }
+
+        public Builder footer(boolean f){
+            this.footer=f;
+            return this;
+        }
+
+        public Builder title(String s){
+            this.title=s;
+            return this;
+        }
+
+        public Builder type(String s){
+            this.type=s;
+            return this;
+        }
+
+        public Builder description(String s){
+            this.description=s;
+            return this;
+        }
+
+        public Builder image(String s){
+            this.image=s;
+            return this;
+        }
+
+        private Builder headerVersion(String s){
+            this.headerVersion=s;
+            return this;
+        }
+
+        public Builder seoVersion(String s){
+            this.seoVersion=s;
+            return this;
+        }
+
+        public BootstrapBuilder build(){
+            return new BootstrapBuilder(this);
+        }
+
     }
 
 }
