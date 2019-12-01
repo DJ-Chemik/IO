@@ -1,6 +1,6 @@
-git:
-  depth: 3
 language: java
+sudo: true
+dist: trusty
 jdk:
   - oraclejdk8
 before_install:
