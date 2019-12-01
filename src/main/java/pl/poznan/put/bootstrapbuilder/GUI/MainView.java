@@ -12,8 +12,16 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import pl.poznan.put.bootstrapbuilder.rest.BootstrapBuilderController;
 
+/**
+ * GUI for easy Bootstrap building, with auto-requesting
+ *
+ * @author Mikołaj Szymczak
+ * @version 1.0
+ */
 @Route
-public class MainView extends VerticalLayout{
+public class MainView extends VerticalLayout {
+
+    // fields declarations
     private Checkbox isHeaderCheckBox;
     private Checkbox isFooterCheckBox;
     private TextField titleTextField;
@@ -27,6 +35,10 @@ public class MainView extends VerticalLayout{
     private VerticalLayout vertical;
     private HorizontalLayout horizontal;
 
+    /**
+     * Main website handler, for fetching data from user, requesting and returning ready bootstrap code
+     *
+     */
     public MainView() {
         isHeaderCheckBox = new Checkbox("Header");
         isFooterCheckBox = new Checkbox("Footer");
