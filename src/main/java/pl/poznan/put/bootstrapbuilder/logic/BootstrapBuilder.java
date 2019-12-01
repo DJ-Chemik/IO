@@ -1,5 +1,13 @@
 package pl.poznan.put.bootstrapbuilder.logic;
 
+/**
+ * Basic BootstrapBuilder structure, that creates bootstrap code based on given parameters
+ *
+ * @author Jan Śmiełowski
+ * @author Mikołaj Szymczak
+ * @author Szymon Szczepański
+ * @version 2.0
+ */
 public class BootstrapBuilder {
 
     // fields declaration
@@ -9,6 +17,11 @@ public class BootstrapBuilder {
     private String headerVersion;
     private String seoVersion;
 
+    /**
+     * Basic constructor, creates an object based on Builder parameters
+     *
+     * @param b Builder instance, used as a template for BootstrapBuilder
+     */
     private BootstrapBuilder(Builder b) {
         this.header = b.header;
         this.footer = b.footer;
@@ -20,7 +33,11 @@ public class BootstrapBuilder {
         this.seoVersion = b.seoVersion;
     }
 
-    // basic bootstrap getter
+    /**
+     * Generates bootstrap, based on instance parameters
+     *
+     * @return Bootstrap code with formatted tags
+     */
     public String getBootstrap() {
         // formatting seoVersion
         if (seoVersion == null)
@@ -56,6 +73,11 @@ public class BootstrapBuilder {
         return String.format("<html>\n%s</html>", head + body);
     }
 
+    /**
+     * Generates BootstrapBuilder instance with parameters
+     *
+     * @author Szymon Szczepański
+     */
     public static class Builder{
 
         private boolean header;
@@ -64,49 +86,106 @@ public class BootstrapBuilder {
         private String headerVersion;
         private String seoVersion;
 
+        /**
+         * Basic empty contructor, for instantiating Builder
+         *
+         */
         public Builder() {
         }
 
+        /**
+         * Specifier for header
+         *
+         * @param h header presence
+         * @return Builder instance
+         */
         public Builder header(boolean h){
             this.header = h;
             return this;
         }
 
+        /**
+         * Specifier for footer
+         *
+         * @param f footer presence
+         * @return Builder instance
+         */
         public Builder footer(boolean f){
             this.footer=f;
             return this;
         }
 
+        /**
+         * Specifier for title
+         *
+         * @param s title content
+         * @return Builder instance
+         */
         public Builder title(String s){
             this.title=s;
             return this;
         }
 
+        /**
+         * Specifier for type
+         *
+         * @param s type content
+         * @return Builder instance
+         */
         public Builder type(String s){
             this.type=s;
             return this;
         }
 
+        /**
+         * Specifier for description
+         *
+         * @param s description content
+         * @return Builder instance
+         */
         public Builder description(String s){
             this.description=s;
             return this;
         }
 
+        /**
+         * Specifier for image source
+         *
+         * @param s image source
+         * @return Builder instance
+         */
         public Builder image(String s){
             this.image=s;
             return this;
         }
 
+        /**
+         * Specifier for header version
+         *
+         * @param s header version content
+         * @return Builder instance
+         */
         public Builder headerVersion(String s){
             this.headerVersion=s;
             return this;
         }
 
+        /**
+         * Specifier for SEO version
+         *
+         * @param s SEO version content
+         * @return Builder instance
+         */
         public Builder seoVersion(String s){
             this.seoVersion=s;
             return this;
         }
 
+        /**
+         * Creates BootstrapBuilder instance of a given Builder parameters
+         *
+         * @return BootstrapBuilder instance of a desired specification
+         */
         public BootstrapBuilder build(){
             return new BootstrapBuilder(this);
         }
