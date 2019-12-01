@@ -18,7 +18,7 @@ import pl.poznan.put.bootstrapbuilder.rest.BootstrapBuilderController;
  * @author Mikołaj Szymczak
  * @version 1.0
  */
-@Route
+@Route("vaadin")
 public class MainView extends VerticalLayout {
 
     // fields declarations
