@@ -18,6 +18,30 @@ public class BootstrapBuilder {
     private String seoVersion;
 
     /**
+     * Basic constructor, creates an object based on each given parameters
+     *
+     * @param header Specifier for header
+     * @param footer Specifier for footer
+     * @param title Specifier for title
+     * @param type Specifier for type
+     * @param description Specifier for description
+     * @param image Specifier for image source
+     * @param headerVersion Specifier for headerVersion
+     * @param seoVersion Specifier for seoVersion
+     */
+    public BootstrapBuilder(boolean header, boolean footer, String title, String type,
+                            String description, String image, String headerVersion, String seoVersion) {
+        this.header = header;
+        this.footer = footer;
+        this.title = title;
+        this.type = type;
+        this.description = description;
+        this.image = image;
+        this.headerVersion = headerVersion;
+        this.seoVersion = seoVersion;
+    }
+
+    /**
      * Basic constructor, creates an object based on Builder parameters
      *
      * @param b Builder instance, used as a template for BootstrapBuilder
@@ -46,11 +70,14 @@ public class BootstrapBuilder {
             seoVersion += ":";
 
         // HEAD
+        String metaCharset = "\t\t<meta charset=\"utf-8\">\n";
+        String metaViewport = "\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n";
+        String link = "\t\t<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n";
         String metaTitle = String.format("\t\t<meta name=\"%stitle\" content=\"%s\">\n", seoVersion, title);
         String metaType = String.format("\t\t<meta name=\"%stype\" content=\"%s\">\n", seoVersion, type);
         String metaDesc = String.format("\t\t<meta name=\"%sdescription\" content=\"%s\">\n", seoVersion, description);
         String metaImage = String.format("\t\t<meta name=\"%simage\" content=\"%s\">\n", seoVersion, image);
-        String head = String.format("\t<head>\n%s\t</head>\n", metaTitle + metaType + metaDesc + metaImage);
+        String head = String.format("\t<head>\n%s\t</head>\n", metaCharset + metaViewport + link + metaTitle + metaType + metaDesc + metaImage);
 
         // BODY
         String mHeader = "";
