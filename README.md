@@ -1,3 +1,6 @@
+# Building-Info
+![Build status](https://travis-ci.org/janeksmielowski/IO.svg?branch=master)
+
 # IO BootstrapBuilder
 Inżynieria Oprogramowania (projekt)
 
