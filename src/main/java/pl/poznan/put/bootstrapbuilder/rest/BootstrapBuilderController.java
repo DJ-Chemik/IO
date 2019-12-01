@@ -37,4 +37,15 @@ public class BootstrapBuilderController {
         return bootstrap.getBootstrap();
     }
 
+    /**
+     * POST request mapping method
+     *
+     * @param bootstrap instance of BootstrapBuilder from JSON
+     * @return Bootstrap code, formatted by params
+     */
+    @RequestMapping(value = "/bootstrap", method = RequestMethod.POST, produces = "application/json")
+    public static String getViaBody(@RequestBody BootstrapBuilder bootstrap) {
+        return bootstrap.getBootstrap();
+    }
+
 }
