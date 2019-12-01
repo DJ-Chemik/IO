@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Main BootstrapBuilder class, responsible for connecting Spring Boot and Vaadin
  *
- * @author Jan Śmiełowski, Mikołaj Szymczak
+ * @author Jan Śmiełowski
+ * @author Mikołaj Szymczak
  * @version 1.1
  */
 @EnableVaadin({"pl.poznan.put.bootstrapbuilder.GUI"})
