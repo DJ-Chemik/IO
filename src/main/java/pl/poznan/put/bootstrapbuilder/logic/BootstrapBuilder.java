@@ -38,11 +38,10 @@ public class BootstrapBuilder {
         // BODY
         String mHeader = "";
         if (header) {
-            if (headerVersion.equals("static"))
-                mHeader = "\t\t<nav class=\"navbar\">\n\t\t\t\n\t\t</nav>\n\n";
-            else if (headerVersion.equals("fixed"))
+            if (headerVersion.equals("fixed"))
                 mHeader = "\t\t<nav class=\"navbar fixed-top\">\n\t\t\t\n\t\t</nav>\n\n";
-            else; // TODO: handle incompatible header type
+            else // static
+                mHeader = "\t\t<nav class=\"navbar\">\n\t\t\t\n\t\t</nav>\n\n";
         }
 
         String mMain = "\t\t<main class=\"container\">\n\t\t\t\n\t\t</main>\n\n";
