@@ -13,8 +13,7 @@ import pl.poznan.put.bootstrapbuilder.rest.BootstrapBuilderController;
  * @author Mikołaj Szymczak
  * @version 1.1
  */
-@EnableVaadin({"pl.poznan.put.bootstrapbuilder.GUI"})
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"pl.poznan.put.bootstrapbuilder.rest"})
 @ComponentScan(basePackageClasses = BootstrapBuilderController.class)
 public class BootstrapBuilderApplication {
 

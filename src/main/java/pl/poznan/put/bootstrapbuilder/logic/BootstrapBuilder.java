@@ -217,4 +217,9 @@ public class BootstrapBuilder {
             return new BootstrapBuilder(this);
         }
     }
+
+    @Override
+    public String toString(){
+        return String.format("{}\n {}\n {}\n {}\n {}\n {}\n {}\n {}", this.header, this.footer, this.title, this.type, this.description, this.image, this.headerVersion, this.seoVersion);
+    }
 }
