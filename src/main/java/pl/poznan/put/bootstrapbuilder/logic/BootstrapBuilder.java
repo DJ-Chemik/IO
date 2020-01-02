@@ -6,7 +6,7 @@ package pl.poznan.put.bootstrapbuilder.logic;
  * @author Jan Śmiełowski
  * @author Mikołaj Szymczak
  * @author Szymon Szczepański
- * @version 2.0
+ * @version 2.1
  */
 public class BootstrapBuilder {
 
