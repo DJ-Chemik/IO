@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import pl.poznan.put.bootstrapbuilder.logic.BootstrapBuilder;
 
-
 /**
  * Main controller for dispatching REST requests
  *
@@ -36,6 +35,16 @@ public class BootstrapBuilderController {
                                       @RequestParam(value = "title") String title,@RequestParam(value = "type") String type,
                                       @RequestParam(value = "description") String description, @RequestParam(value = "image") String image,
                                       @RequestParam(value = "headerVersion") String headerVersion, @RequestParam(value = "seoVersion") String seoVersion) {
+        BootstrapBuilder bootstrap = new BootstrapBuilder.Builder()
+                .header(header)
+                .footer(footer)
+                .title(title)
+                .type(type)
+                .description(description)
+                .image(image)
+                .headerVersion(headerVersion)
+                .seoVersion(seoVersion)
+                .build();
 
         logger.debug(String.valueOf(header));
         logger.debug(String.valueOf(footer));
@@ -46,8 +55,6 @@ public class BootstrapBuilderController {
         logger.debug(headerVersion);
         logger.debug(seoVersion);
 
-        BootstrapBuilder bootstrap = new BootstrapBuilder.Builder().header(header).footer(footer).title(title).type(type).description(description)
-                .image(image).headerVersion(headerVersion).seoVersion(seoVersion).build();
         return bootstrap.getBootstrap();
     }
 
