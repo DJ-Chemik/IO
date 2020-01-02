@@ -57,6 +57,72 @@ public class BootstrapBuilder {
         this.seoVersion = b.seoVersion;
     }
 
+    /* Basic getters and setters */
+    public boolean isHeader() {
+        return header;
+    }
+
+    public void setHeader(boolean header) {
+        this.header = header;
+    }
+
+    public boolean isFooter() {
+        return footer;
+    }
+
+    public void setFooter(boolean footer) {
+        this.footer = footer;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getHeaderVersion() {
+        return headerVersion;
+    }
+
+    public void setHeaderVersion(String headerVersion) {
+        this.headerVersion = headerVersion;
+    }
+
+    public String getSeoVersion() {
+        return seoVersion;
+    }
+
+    public void setSeoVersion(String seoVersion) {
+        this.seoVersion = seoVersion;
+    }
+    /* end of getters & setters */
+
     /**
      * Generates bootstrap, based on instance parameters
      *
