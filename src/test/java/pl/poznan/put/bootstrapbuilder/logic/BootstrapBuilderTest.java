@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Basic test class for BootstrapBuilder
+ *
+ * @author Jan Śmiełowski
+ * @version 1.0
+ */
 class BootstrapBuilderTest {
 
     @BeforeEach
@@ -16,6 +22,10 @@ class BootstrapBuilderTest {
     void tearDown() {
     }
 
+    /**
+     * Test for BootstrapBuilder constructing via basic constructor with parameters
+     *
+     */
     @Test
     void testBasicConstruction() {
         BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "Title", "type",
@@ -24,6 +34,10 @@ class BootstrapBuilderTest {
         assertEquals("static", bootstrapBuilder.isHeader() ? bootstrapBuilder.getHeaderVersion() : null);
     }
 
+    /**
+     * Test for BootstrapBuilder constructing via static Builder
+     *
+     */
     @Test
     void testBuilderConstruction() {
         BootstrapBuilder bootstrapBuilder = new BootstrapBuilder.Builder()
@@ -41,6 +55,10 @@ class BootstrapBuilderTest {
         assertEquals("fixed", bootstrapBuilder.isHeader() ? bootstrapBuilder.getHeaderVersion() : null);
     }
 
+    /**
+     * Test for some setters appropriate working
+     *
+     */
     @Test
     void testSomeSetters() {
         BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "Title", "type",
@@ -58,6 +76,10 @@ class BootstrapBuilderTest {
         assertEquals("fixed", bootstrapBuilder.isHeader() ? bootstrapBuilder.getHeaderVersion() : null);
     }
 
+    /**
+     * Test for appropriate bootstrap generating (based on CharSequences inside)
+     *
+     */
     @Test
     void testBootstrap() {
         BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "Title", "type",
@@ -69,6 +91,10 @@ class BootstrapBuilderTest {
         assertTrue(bootstrap.contains("<nav class=\"navbar\">"));
     }
 
+    /**
+     * Test for unknown header version (expecting static navbar)
+     *
+     */
     @Test
     void testUnknownHeaderVersion() {
         BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "Title", "type",
@@ -78,10 +104,14 @@ class BootstrapBuilderTest {
         assertTrue(bootstrap.contains("<nav class=\"navbar\">"));
     }
 
+    /**
+     * Test for null header version (expecting error)
+     */
     @Test
     void testNullHeaderVersion() {
         BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "Title", "type",
                 "description", "image.jpg", null, "og");
+        // expecting error
         assertThrows(NullPointerException.class, bootstrapBuilder::getBootstrap);
     }
 
