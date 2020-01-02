@@ -12,7 +12,7 @@
 
 	<groupId>pl.poznan.put</groupId>
 	<artifactId>io-bootstrap-builder</artifactId>
-	<version>0.1</version>
+	<version>1.0.0</version>
 	<name>io-bootstrap-builder</name>
 	<description>IO project</description>
 
