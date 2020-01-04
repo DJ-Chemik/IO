@@ -130,10 +130,11 @@ public class BootstrapBuilder {
      */
     public String getBootstrap() {
         // formatting seoVersion
-        if (seoVersion == null)
+        String seoVersion;
+        if (this.seoVersion == null)
             seoVersion = "";
         else
-            seoVersion += ":";
+            seoVersion = this.seoVersion + ":";
 
         // HEAD
         String metaCharset = "\t\t<meta charset=\"utf-8\">\n";
