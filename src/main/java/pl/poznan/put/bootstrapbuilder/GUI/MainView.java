@@ -69,23 +69,107 @@ public class MainView extends VerticalLayout {
         seoVersionListBox.setValue("basic");
 
         getButton = new Button("GET HTML", buttonClickEvent -> {
-            String seo;
-            if(seoVersionListBox.getValue().equals("basic"))
-                seo = null;
-            else if(seoVersionListBox.getValue().equals("open graph"))
-                seo = "og";
-            else
-                seo = "twitter";
-            result.setValue(BootstrapBuilderController.getViaParams(isHeaderCheckBox.getValue(), isFooterCheckBox.getValue(),
-                    titleTextField.getValue(), typeTextField.getValue(), descriptionTextArea.getValue(), imageTextField.getValue(),
-                    headerVersionListBox.getValue(), seo
-            ));
+            buttonClickHandle();
         });
         setHorizontalComponentAlignment(Alignment.CENTER, getButton, horizontal, result, titleTextField, typeTextField, descriptionTextArea, imageTextField, seoVersionListBox);
 
         vertical.add(isFooterCheckBox, isHeaderCheckBox, headerVersionListBox);
         horizontal.add(vertical, titleTextField, typeTextField, descriptionTextArea, imageTextField, seoVersionListBox);
         add(horizontal, getButton, result);
+    }
 
+    public void buttonClickHandle() {
+        BootstrapBuilderController controller = new BootstrapBuilderController();
+        String seo;
+        if(seoVersionListBox.getValue().equals("basic"))
+            seo = "basic";
+        else if(seoVersionListBox.getValue().equals("open graph"))
+            seo = "og";
+        else
+            seo = "twitter";
+        result.setValue(controller.getViaParams(isHeaderCheckBox.getValue(), isFooterCheckBox.getValue(),
+                titleTextField.getValue(), typeTextField.getValue(), descriptionTextArea.getValue(), imageTextField.getValue(),
+                headerVersionListBox.getValue(), seo
+        ));
+    }
+
+    public Checkbox getIsHeaderCheckBox() {
+        return isHeaderCheckBox;
+    }
+
+    public void setIsHeaderCheckBox(Checkbox isHeaderCheckBox) {
+        this.isHeaderCheckBox = isHeaderCheckBox;
+    }
+
+    public Checkbox getIsFooterCheckBox() {
+        return isFooterCheckBox;
+    }
+
+    public void setIsFooterCheckBox(Checkbox isFooterCheckBox) {
+        this.isFooterCheckBox = isFooterCheckBox;
+    }
+
+    public TextField getTitleTextField() {
+        return titleTextField;
+    }
+
+    public void setTitleTextField(TextField titleTextField) {
+        this.titleTextField = titleTextField;
+    }
+
+    public TextField getTypeTextField() {
+        return typeTextField;
+    }
+
+    public void setTypeTextField(TextField typeTextField) {
+        this.typeTextField = typeTextField;
+    }
+
+    public TextArea getDescriptionTextArea() {
+        return descriptionTextArea;
+    }
+
+    public void setDescriptionTextArea(TextArea descriptionTextArea) {
+        this.descriptionTextArea = descriptionTextArea;
+    }
+
+    public TextField getImageTextField() {
+        return imageTextField;
+    }
+
+    public void setImageTextField(TextField imageTextField) {
+        this.imageTextField = imageTextField;
+    }
+
+    public ListBox<String> getSeoVersionListBox() {
+        return seoVersionListBox;
+    }
+
+    public void setSeoVersionListBox(ListBox<String> seoVersionListBox) {
+        this.seoVersionListBox = seoVersionListBox;
+    }
+
+    public ListBox<String> getHeaderVersionListBox() {
+        return headerVersionListBox;
+    }
+
+    public void setHeaderVersionListBox(ListBox<String> headerVersionListBox) {
+        this.headerVersionListBox = headerVersionListBox;
+    }
+
+    public Button getGetButton() {
+        return getButton;
+    }
+
+    public void setGetButton(Button getButton) {
+        this.getButton = getButton;
+    }
+
+    public TextArea getResult() {
+        return result;
+    }
+
+    public void setResult(TextArea result) {
+        this.result = result;
     }
 }

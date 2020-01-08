@@ -15,8 +15,8 @@ import pl.poznan.put.bootstrapbuilder.rest.BootstrapBuilderController;
  */
 @SpringBootApplication(scanBasePackages = {"pl.poznan.put.bootstrapbuilder.rest"})
 @ComponentScan(basePackageClasses = BootstrapBuilderController.class)
+@EnableVaadin("pl.poznan.put.bootstrapbuilder.GUI")
 public class BootstrapBuilderApplication {
-
     /**
      * Main method, connecting Spring to application
      *
@@ -25,5 +25,4 @@ public class BootstrapBuilderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BootstrapBuilderApplication.class, args);
 	}
-
 }

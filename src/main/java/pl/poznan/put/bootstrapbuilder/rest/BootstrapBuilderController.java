@@ -2,6 +2,9 @@ package pl.poznan.put.bootstrapbuilder.rest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.poznan.put.bootstrapbuilder.logic.BootstrapBuilder;
 
@@ -30,11 +33,11 @@ public class BootstrapBuilderController {
      * @param seoVersion specifier for SEO version
      * @return Bootstrap code, formatted by params
      */
-    @RequestMapping(value = "/bootstrap", method = RequestMethod.GET, produces = "application/json")
-    public static String getViaParams(@RequestParam(value = "header") boolean header, @RequestParam(value = "footer") boolean footer,
-                                      @RequestParam(value = "title") String title,@RequestParam(value = "type") String type,
-                                      @RequestParam(value = "description") String description, @RequestParam(value = "image") String image,
-                                      @RequestParam(value = "headerVersion") String headerVersion, @RequestParam(value = "seoVersion") String seoVersion) {
+    @RequestMapping(value = "/bootstrap", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getViaParams(@RequestParam(value = "header") boolean header, @RequestParam(value = "footer") boolean footer,
+                                                     @RequestParam(value = "title") String title, @RequestParam(value = "type") String type,
+                                                     @RequestParam(value = "description") String description, @RequestParam(value = "image") String image,
+                                                     @RequestParam(value = "headerVersion") String headerVersion, @RequestParam(value = "seoVersion") String seoVersion) {
         BootstrapBuilder bootstrap = new BootstrapBuilder.Builder()
                 .header(header)
                 .footer(footer)
@@ -65,7 +68,7 @@ public class BootstrapBuilderController {
      * @return Bootstrap code, formatted by params
      */
     @RequestMapping(value = "/bootstrap", method = RequestMethod.POST, produces = "application/json")
-    public static String getViaBody(@RequestBody BootstrapBuilder bootstrap) {
+    public String getViaBody(@RequestBody BootstrapBuilder bootstrap) {
         logger.debug(bootstrap.toString());
 
         return bootstrap.getBootstrap();

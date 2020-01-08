@@ -24,7 +24,6 @@ class BootstrapBuilderTest {
 
     /**
      * Test for BootstrapBuilder constructing via basic constructor with parameters
-     *
      */
     @Test
     void testBasicConstruction() {
@@ -36,7 +35,6 @@ class BootstrapBuilderTest {
 
     /**
      * Test for BootstrapBuilder constructing via static Builder
-     *
      */
     @Test
     void testBuilderConstruction() {
@@ -57,7 +55,6 @@ class BootstrapBuilderTest {
 
     /**
      * Test for some setters appropriate working
-     *
      */
     @Test
     void testSomeSetters() {
@@ -78,7 +75,6 @@ class BootstrapBuilderTest {
 
     /**
      * Test for appropriate bootstrap generating (based on CharSequences inside)
-     *
      */
     @Test
     void testBootstrap() {
@@ -92,8 +88,20 @@ class BootstrapBuilderTest {
     }
 
     /**
+     * test if not wanted header appears in result string
+     */
+    @Test
+    void testBootstrapHeaderFalse() {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(false, true, "Title", "type",
+                "description", "image.jpg", "static", "og");
+
+        String bootstrap = bootstrapBuilder.getBootstrap();
+
+        assertFalse(bootstrap.contains("<nav class=\"navbar\">"));
+    }
+
+    /**
      * Test for unknown header version (expecting static navbar)
-     *
      */
     @Test
     void testUnknownHeaderVersion() {
@@ -102,6 +110,28 @@ class BootstrapBuilderTest {
         String bootstrap = bootstrapBuilder.getBootstrap();
         // expecting static navbar
         assertTrue(bootstrap.contains("<nav class=\"navbar\">"));
+    }
+
+    /**
+     * Testing output html if footer should not be in the result
+     */
+    @Test
+    void testBootstrapFooterFalse() {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, false, "title", "type",
+                "description", "image.jpg", "static", "og");
+        String bootstrap = bootstrapBuilder.getBootstrap();
+        assertFalse(bootstrap.contains("<footer class=\"footer\">"));
+    }
+
+    /**
+     * Testing output html if footer should be in the result
+     */
+    @Test
+    void testBootstrapFooterTrue() {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "title", "type",
+                "description", "image.jpg", "static", "og");
+        String bootstrap = bootstrapBuilder.getBootstrap();
+        assertTrue(bootstrap.contains("<footer class=\"footer\">"));
     }
 
     /**
