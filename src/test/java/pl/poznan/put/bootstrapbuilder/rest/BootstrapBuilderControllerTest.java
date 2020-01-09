@@ -5,11 +5,16 @@ import org.junit.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import pl.poznan.put.bootstrapbuilder.BootstrapBuilderAbstractTest;
+import pl.poznan.put.BootstrapBuilderAbstractTest;
 import pl.poznan.put.bootstrapbuilder.logic.BootstrapBuilder;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Basic test class for Controller
+ *
+ * @author Jan Śmiełowski
+ */
 public class BootstrapBuilderControllerTest extends BootstrapBuilderAbstractTest {
     @Override
     @Before
@@ -17,6 +22,11 @@ public class BootstrapBuilderControllerTest extends BootstrapBuilderAbstractTest
         super.setUp();
     }
 
+    /**
+     * Test for GET request
+     *
+     * @throws Exception when mvc encounters error
+     */
     @Test
     public void testGetRequest() throws Exception {
         String uri = "/bootstrap?header=true&footer=true&title=Title&type=Type&description=desc&image=img.jpg&headerVersion=static&seoVersion=og";
@@ -30,6 +40,11 @@ public class BootstrapBuilderControllerTest extends BootstrapBuilderAbstractTest
         assertEquals(expected, content);
     }
 
+    /**
+     * Test for POST request
+     *
+     * @throws Exception when mvc encounters error
+     */
     @Test
     public void testPostRequest() throws Exception {
         BootstrapBuilder bootstrap = new BootstrapBuilder(true, true, "Title", "Type",

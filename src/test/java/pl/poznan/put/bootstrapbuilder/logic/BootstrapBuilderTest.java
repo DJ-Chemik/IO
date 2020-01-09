@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Basic test class for BootstrapBuilder
  *
  * @author Jan Śmiełowski
- * @version 1.0
+ * @author Mikołaj Szymczak
  */
 class BootstrapBuilderTest {
 

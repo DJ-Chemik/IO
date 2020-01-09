@@ -1,4 +1,4 @@
-package pl.poznan.put.bootstrapbuilder;
+package pl.poznan.put;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;

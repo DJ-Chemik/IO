@@ -90,7 +90,7 @@ public class MainView extends VerticalLayout {
         result.setValue(controller.getViaParams(isHeaderCheckBox.getValue(), isFooterCheckBox.getValue(),
                 titleTextField.getValue(), typeTextField.getValue(), descriptionTextArea.getValue(), imageTextField.getValue(),
                 headerVersionListBox.getValue(), seo
-        ));
+        ).getBody().toString());
     }
 
     public Checkbox getIsHeaderCheckBox() {
