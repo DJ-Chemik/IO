@@ -31,13 +31,22 @@ public class BootstrapBuilderControllerTest extends BootstrapBuilderAbstractTest
     public void testGetRequest() throws Exception {
         String uri = "/bootstrap?header=true&footer=true&title=Title&type=Type&description=desc&image=img.jpg&headerVersion=static&seoVersion=og";
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
-        int status = mvcResult.getResponse().getStatus();
-        assertEquals(200, status);
 
         String content = mvcResult.getResponse().getContentAsString();
         String expected = new BootstrapBuilder(true, true, "Title", "Type",
                 "desc", "img.jpg", "static", "og").getBootstrap();
         assertEquals(expected, content);
+    }
+
+    /**
+     * Test for status GET request
+     */
+    @Test
+    public void testGetRequestStatus() throws Exception {
+        String uri = "/bootstrap?header=true&footer=true&title=Title&type=Type&description=desc&image=img.jpg&headerVersion=static&seoVersion=og";
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
     }
 
     /**
@@ -53,11 +62,24 @@ public class BootstrapBuilderControllerTest extends BootstrapBuilderAbstractTest
 
         String uri = "/bootstrap";
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(json)).andReturn();
-        int status = mvcResult.getResponse().getStatus();
-        assertEquals(200, status);
 
         String content = mvcResult.getResponse().getContentAsString();
         assertEquals(bootstrap.getBootstrap(), content);
+    }
+
+    /**
+     * Test for status POST request
+     */
+    @Test
+    public void testPostRequestStatus() throws Exception {
+        BootstrapBuilder bootstrap = new BootstrapBuilder(true, true, "Title", "Type",
+                "desc", "img.jpg", "static", "og");
+        String json = super.mapToJson(bootstrap);
+
+        String uri = "/bootstrap";
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(json)).andReturn();
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
     }
 
 }
