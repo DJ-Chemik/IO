@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Basic test class for BootstrapBuilder
@@ -110,6 +112,19 @@ class BootstrapBuilderTest {
         String bootstrap = bootstrapBuilder.getBootstrap();
         // expecting static navbar
         assertTrue(bootstrap.contains("<nav class=\"navbar\">"));
+    }
+
+    /**
+     * Testing getters of BootstrapBuilder class
+     */
+    @Test
+    void testGetters() {
+        BootstrapBuilder bootstrapBuilder = new BootstrapBuilder(true, true, "Title", "type",
+                "description", "image.jpg", "static", "og");
+
+        assertTrue(bootstrapBuilder.isFooter());
+        assertEquals("description", bootstrapBuilder.getDescription());
+        assertEquals("static", bootstrapBuilder.isHeader() ? bootstrapBuilder.getHeaderVersion() : null);
     }
 
     /**
